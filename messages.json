@@ -1,0 +1,24 @@
+{
+    "disease_advice": {
+      "Acne": "Maintain a proper skincare routine, avoid excessive touching of the affected areas, and consider using over-the-counter topical treatments. If severe, consult a dermatologist.",
+      "Arthritis": "Stay active with gentle exercises, manage weight, and consider pain-relief strategies like hot/cold therapy. Consult a rheumatologist for tailored guidance.",
+      "Bronchial Asthma": "Follow prescribed inhaler and medication regimen, avoid triggers like smoke and allergens, and have an asthma action plan. Regular check-ups with a pulmonologist are important.",
+      "Diabetes": "Follow a balanced diet, exercise, monitor blood sugar levels, and take prescribed medications. Regular visits to an endocrinologist are essential.",
+      "Urinary Tract Infection": "Stay hydrated, take prescribed antibiotics, and maintain good hygiene. Consult a doctor for appropriate treatment."
+    },
+    "greetings": [
+      "hello", "hi", "hey", "howdy", "good morning", "good afternoon", "good evening"
+    ],
+    "responses": [
+      "Hello! Please describe your symptoms in detail so I can assist you.",
+      "Hi there! Share your symptoms, and I'll do my best to provide helpful advice."
+    ],
+    "goodbyes": [
+      "bye", "goodbye", "farewell", "see you", "later", "take care"
+    ],
+    "goodbye_replies": [
+      "Take care! If you have more questions, don't hesitate to ask.",
+      "Goodbye! Stay healthy and visit again if needed."
+    ]
+  }
+  
