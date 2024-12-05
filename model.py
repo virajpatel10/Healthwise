@@ -10,6 +10,7 @@ from tensorflow.keras.models import load_model
 import preprocessing
 import evaluation
 import joblib
+from tensorflow.keras.layers import Bidirectional
 
 file_path = 'Symptom2Disease.csv'
 data = pd.read_csv(file_path)
@@ -81,8 +82,6 @@ history_dnn = model_dnn.fit(
 
 #bidirectional-lstm
 
-from tensorflow.keras.layers import Bidirectional
-
 model_bilstm = Sequential([
     Input(shape=(1, X_train.shape[2])),
     Bidirectional(LSTM(128, return_sequences=False)),  # Bidirectional LSTM layer
@@ -120,3 +119,20 @@ evaluation.evaluation_graphs(history_bilstm, model_bilstm, X_test, y_test, label
 
 evaluation.compare_accuracies(history, history_dnn, history_bilstm)
 
+# Convert predicted probabilities to class labels for each model
+y_pred_rnn_classes = np.argmax(y_pred_rnn, axis=1)
+y_pred_dnn_classes = np.argmax(y_pred_dnn, axis=1)
+y_pred_bilstm_classes = np.argmax(y_pred_bilstm, axis=1)
+
+classes = label_encoder.classes_
+# Evaluate RNN
+print("Evaluation for RNN Model:")
+evaluation.print_evaluation_scores(y_test, y_pred_rnn_classes,classes)
+
+# Evaluate DNN
+print("Evaluation for DNN Model:")
+evaluation.print_evaluation_scores(y_test, y_pred_dnn_classes,classes)
+
+# Evaluate BiLSTM
+print("Evaluation for BiLSTM Model:")
+evaluation.print_evaluation_scores(y_test, y_pred_bilstm_classes,classes)

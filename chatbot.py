@@ -146,7 +146,6 @@ with gr.Blocks(css="""
     #chatbot { height: 520px; overflow: auto; }
 """) as demo:
     gr.HTML("<h1>Medical Chatbot: Your Virtual Health Guide 🌟🏥🤖</h1>")
-    gr.HTML("<p>To know more about this project, click <a href='#'>here</a>.</p>")
     with gr.Accordion("Follow these steps to use the chatbot", open=True):
         gr.HTML("""<p>
         1. Type your message or symptoms in the textbox below.<br>

@@ -2,6 +2,7 @@ from sklearn.metrics import confusion_matrix
 import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
+from sklearn.metrics import classification_report, accuracy_score
 
 def plot_confusion_matrix(y_true, y_pred, classes):
     cm = confusion_matrix(y_true, y_pred)
@@ -44,4 +45,19 @@ def compare_accuracies(hist_rnn, hist_dnn, hist_bilstm):
     plt.legend()
     plt.show()
 
+def print_evaluation_scores(y_true, y_pred,classes):
+    print("Classification Report:")
+    report = classification_report(y_true, y_pred, target_names=classes, output_dict=True)
+    print(classification_report(y_true, y_pred, target_names=classes))
+    
+    # Calculate averages for precision, recall, and F1-score
+    
+    precision_avg = report['macro avg']['precision']
+    recall_avg = report['macro avg']['recall']
+    f1_score_avg = report['macro avg']['f1-score']
+    
+    print("Accuracy:", accuracy_score(y_true, y_pred))
+    print(f"Average Precision: {precision_avg:.2f}")
+    print(f"Average Recall: {recall_avg:.2f}")
+    print(f"Average F1-Score: {f1_score_avg:.2f}")
 
